@@ -64,7 +64,10 @@ async function main() {
         newLinks = Array.from(new Set(newLinks)).reverse();
 
         for (const link of newLinks) {
-          await webhook.send({ content: link, allowed_mentions: { parse: [] } });
+          // replace x.com with fixupx.com in the link
+          const fixedLink = link.replace(/https?:\/\/(www\.)?x\.com/, "https://fixupx.com");
+          console.log(`Sending to Discord for ${username}:`, fixedLink);
+          await webhook.send({ content: fixedLink, allowed_mentions: { parse: [] } });
           await sleep(1000); // small cushion vs 429
         }
 
