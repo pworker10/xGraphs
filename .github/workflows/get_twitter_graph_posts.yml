@@ -1,4 +1,4 @@
-name: ⚡ Get X.com Graph Posts
+name: ⚡ Get X.com Graphs Posts
 
 on:
   repository_dispatch:
